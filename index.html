@@ -283,10 +283,10 @@ class Tank {
     const b = this.getBounds();
     // Check all 4 corners
     const corners = [
-      { row: Math.floor(b.top / CELL), col: Math.floor(b.left / CELL) },
-      { row: Math.floor(b.top / CELL), col: Math.floor((b.right - 1) / CELL) },
-      { row: Math.floor((b.bottom - 1) / CELL), col: Math.floor(b.left / CELL) },
-      { row: Math.floor((b.bottom - 1) / CELL), col: Math.floor((b.right - 1) / CELL) },
+      { row: Math.floor((b.top - MAP_OFFSET_Y) / CELL), col: Math.floor((b.left - MAP_OFFSET_X) / CELL) },
+      { row: Math.floor((b.top - MAP_OFFSET_Y) / CELL), col: Math.floor((b.right - 1 - MAP_OFFSET_X) / CELL) },
+      { row: Math.floor((b.bottom - 1 - MAP_OFFSET_Y) / CELL), col: Math.floor((b.left - MAP_OFFSET_X) / CELL) },
+      { row: Math.floor((b.bottom - 1 - MAP_OFFSET_Y) / CELL), col: Math.floor((b.right - 1 - MAP_OFFSET_X) / CELL) },
     ];
     for (const c of corners) {
       if (c.row < 0 || c.row >= ROWS || c.col < 0 || c.col >= COLS) return true;
